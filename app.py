@@ -7,8 +7,18 @@ df = pd.DataFrame({
     'b': [10, 20, 30, 40],
 })
 
-st.write("Hello World Gaye!!!")
+with st.sidebar:
+    st.write("Hello World Gaye!!!")
 
+    option = st.selectbox(
+        "Selectionnez une formation à suivre",
+        ["Joins", "group By","Windows Functions"],
+        index = None,
+        placeholder="Choisir une formation...",
+        # accept_new_options=True,
+    )
+
+st.write("Vous avez choissi : ", option )
 sql_query = st.text_area('Veuillez saisir la requête')
 
 if sql_query != "":
