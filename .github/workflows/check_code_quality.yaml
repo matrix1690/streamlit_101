@@ -1,7 +1,7 @@
 name: check_code_quality
 on: pull_request
 jobs:
-  black:
+  black_pylint:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
@@ -10,6 +10,10 @@ jobs:
           python-version: 3.9
       - run: |
           python -m pip install --upgrade pip
+          pip install streamlit pandas duckdb
           pip install black
+          pip install pylint
       - run: | 
           black --check --verbose .
+      - run: |
+          pylint app.py --output-format=text --score=y --fail-under=8 -v
