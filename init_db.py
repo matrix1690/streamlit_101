@@ -3,20 +3,22 @@ import os
 import pandas as pd
 import duckdb
 
-con = duckdb.connect(database="data/exercices_sql_tables.duckdb", read_only=False)
+con = duckdb.connect(database="data/exercises_sql_tables.duckdb", read_only=False)
 
 with con:
     data = {
         "theme": ["cross_joins", "cross_joins"],
         "exercise_name": ["beverages_and_food", "sizes_and_trademarks"],
         "tables": [["beverages", "food_items"], ["size", "trademarks"]],
-        "last_reviews": ["1980-01-01", "1970-01-01"],
+        "last_reviewed": ["1980-01-01", "1970-01-01"],
     }
 
     # memory_state_df = pd.DataFrame(data)
     memory_state_df = pd.DataFrame.from_dict(data)
 
-    con.execute("CREATE TABLE IF NOT EXISTS memory_state AS SELECT * FROM memory_state")
+    con.execute(
+        "CREATE TABLE IF NOT EXISTS memory_state AS SELECT * FROM memory_state_df"
+    )
 
     # ------------------------------------------------------------
     # CROSS JOIN EXERCISES
