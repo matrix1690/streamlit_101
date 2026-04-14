@@ -3,7 +3,7 @@ import os
 import pandas as pd
 import duckdb
 
-con = duckdb.connect(database="data/exercices_sql_tables.duckdb", read_only=False)
+con = duckdb.connect(database="data/exercises_sql_tables.duckdb", read_only=False)
 
 with con:
     data = {
@@ -16,7 +16,9 @@ with con:
     # memory_state_df = pd.DataFrame(data)
     memory_state_df = pd.DataFrame.from_dict(data)
 
-    con.execute("CREATE TABLE IF NOT EXISTS memory_state AS SELECT * FROM memory_state")
+    con.execute(
+        "CREATE TABLE IF NOT EXISTS memory_state AS SELECT * FROM memory_state_df"
+    )
 
     # ------------------------------------------------------------
     # CROSS JOIN EXERCISES
