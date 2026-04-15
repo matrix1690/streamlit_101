@@ -10,7 +10,7 @@ with con:
         "theme": ["cross_joins", "cross_joins"],
         "exercise_name": ["beverages_and_food", "sizes_and_trademarks"],
         "tables": [["beverages", "food_items"], ["size", "trademarks"]],
-        "last_reviews": ["1980-01-01", "1970-01-01"],
+        "last_reviewed": ["1980-01-01", "1970-01-01"],
     }
 
     # memory_state_df = pd.DataFrame(data)
