@@ -10,6 +10,7 @@ with con:
         "theme": ["cross_joins", "cross_joins"],
         "exercise_name": ["beverages_and_foods", "sizes_and_trademarks"],
         "tables": [["beverages", "food_items"], ["sizes", "trademarks"]],
+
         "last_reviewed": ["1980-01-01", "1970-01-01"],
     }
 
